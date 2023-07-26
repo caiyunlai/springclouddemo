@@ -25,4 +25,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: busrefresh
+      base-path: /actuator
+  endpoint:
+    bus-refresh:
+      enabled: true
+
