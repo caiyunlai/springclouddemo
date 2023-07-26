@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:   # git仓库配置文件信息
+          uri: https://github.com/caiyunlai/springclouddemo.git   # git仓库地址
+          searchPaths: config  # 配置文件路径
+#          default-label: master # git仓库的分支
+          skip-ssl-validation: true  # 跳过ssl验证
+      label: master
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
